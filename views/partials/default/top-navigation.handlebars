@@ -1,0 +1,31 @@
+<header id="header" id="home">
+    <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="/"><img src="img/logo.png" alt="" title="" /></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="/">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="/users">Browse People</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    {{#if user}}
+                    <li><a href="/admin/posts/create" class="genric-btn btn-success   small"><i class="fa fa-plus"></i>
+                            New Post</a></li>
+                    <li class="menu-has-children"><a href="">Hi, {{user.fullname}}</a>
+                        <ul>
+                            <li><a href="/admin">Your Profile</a></li>
+                            <li><a href="/admin/settings">Settings</a></li>
+                            <li><a href="/logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                    {{else}}
+                    <li><a class="ticker-btn" href="/register">Signup</a></li>
+                    <li><a class="ticker-btn" href="/login">Login</a></li>
+                    {{/if}}
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header>

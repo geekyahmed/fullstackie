@@ -1,0 +1,109 @@
+<section class="blog-posts-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 post-list blog-post-list">
+                <div class="single-post">
+                    <img class="img-fluid" src="{{post.file}}" alt="">
+                    <ul class="tags">
+                        <li><a href="#">{{category.title}}</a></li>
+                    </ul>
+                    <a href="#">
+                        <h1>
+                            {{post.title}}
+                        </h1>
+                    </a>
+                    <div class="content-wrap">
+
+                        <blockquote class="generic-blockquote">
+                            {{post.description}}
+                        </blockquote>
+                    </div>
+                    <div class="bottom-meta">
+                        <form action="/post/{{post.id}}" method="post">
+                            <ul class="btns">
+                                <li><button type="submit" name="likebody">Like</button></li>
+                            </ul>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="user-details row align-items-center">
+                <div class="comment-wrap col-lg-6 col-sm-6">
+                    <ul>
+                        {{#each post.likes}}
+                        <li><a href="#"><span class="fa fa-comments"></span>{{like}} {{user.fullname}} liked this
+                                post</a>
+                            {{/each}}
+                        </li>
+                        <li><a href="#"><span class="fa fa-calendar"></span> Posted On
+                                {{post.creationDate}}</a></li>
+                    </ul>
+                </div>
+                <div class="social-wrap col-lg-6">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Start comment-sec Area -->
+        <section class="comment-sec-area pt-80 pb-80">
+            <div class="container">
+                <div class="row flex-column">
+                    <h5 class="text-uppercase pb60"> Comments (  {{comments.length}} )</h5>
+                    <br>
+                    <div class="comment-list">
+                        {{#each post.comments}}
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb">
+                                    <img width="70px" src="/uploads/avataaars (1).png" alt="">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="/user/{{id}}">{{user.fullname}}</a></h5>
+                                    <p class="comment">
+                                        {{body}}
+                                    </p>
+                                    <p class="comment">
+                                        Posted On {{date}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="reply-btn">
+                                <a href="" class="btn-reply text-uppercase">reply</a>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End comment-sec Area -->
+
+        <!-- Start commentform Area -->
+        <section class="commentform-area pt-80">
+            <div class="container">
+                <h5 class="pb-50">Leave a Reply</h5>
+                <form action="/post/{{post._id}}" method="post">
+                    <div class="row flex-row d-flex">
+                        <div class="col-lg-12 col-md-7">
+                            <textarea class="form-control mb-25" name="comment_body" placeholder="Your Answer"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Answer'"
+                                required=""></textarea>
+                            <button class="primary-btn mt-20" type="submit">Comment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    </div>
+    </div>
+    </div>
+</section>

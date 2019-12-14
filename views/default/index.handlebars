@@ -1,0 +1,86 @@
+<section class="post-area section-gap mt-5">
+    <div class="container">
+        <h2 style="font-weight:400; text-transform:uppercase;">Recent Topics ( {{posts.length}} ) </h2>
+        <hr style="width: 300px;">
+        <div class="row justify-content-center d-flex">
+            <div class="col-lg-8 post-list">
+                {{#each posts}}
+                <div class="single-post d-flex flex-row">
+                    <div class="details">
+                        <div class="title d-flex flex-row justify-content-between">
+                            <div class="titles">
+                                <a href="/post/{{id}}">
+                                    <h4 style="text-transform: capitalize; font-size: 20px; font-weight:500;"> {{title}}
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="address"><span class="fa fa-calendar"></span> Posted On {{creationDate}}</p>
+                    </div>
+                </div>
+                {{/each}}
+                <a class="text-uppercase loadmore-btn mx-auto d-block" href="category.html">Load More </a>
+            </div>
+            <div class="col-lg-4 sidebar">
+                <div class="single-slidebar">
+                    <h4>Search</h4>
+                    <div class="single-widget search-widget">
+                        <form class="example" action="/" method="GET" style="margin:auto;max-width:300px">
+                            <input type="text" placeholder="Search Posts" name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="single-slidebar">
+                    <h4>Top Tags ( {{categories.length}} )</h4>
+                    {{#each categories}}
+                    <ul id="cats" class="cat-list">
+                        <li><a class="justify-content-between d-flex" href="">
+                                <p>{{title}}</p>
+                            </a></li>
+                    </ul>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    const categories = [];
+    document.getElementById('cats').innerHTML = posts
+    categories.sort()
+</script>
+{{!-- <script>
+    import Swal from '/sweetalert2/dist/sweetalert2.js'
+
+    import '/sweetalert2/src/sweetalert2.scss'
+
+    function check() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this imaginary file!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, keep it'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your imaginary file has been deleted.',
+                    'success'
+                )
+                // For more information about handling dismissals please visit
+                // https://sweetalert2.github.io/#handling-dismissals
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+    }
+
+
+</script> --}}
